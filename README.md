@@ -1,24 +1,47 @@
-# Task 10 - Gruppo 40
-Componenti:
+# Testing Game - Integration Task
+This is an Educational Game for "Man vs automated Testing Tools challenges", part of the ENACTEST project.<br>
+It has been realized during the Software Architecture Design course at University of Naples Federico II: https://github.com/Testing-Game-SAD-2023
+
+Team Components:
 - Pasquale Riello - M63/1516
 - Lorenzo Pannone - M63/1492
 
-# GUIDA ALL'INSTALLAZIONE
+# What we have done
+Our task was to integrate the other tasks and microservices - created by other teams - into the final
+working product.
+Others goals we have achieved are:
+- Enhanced the security (authentication, authorization) and management of APIs by
+implementing the API Gateway component
+- Increased consistency by serving pages from the same domain and port by
+implementing a reverse proxy (the UI Gateway component)
 
-## PASSO 1
-Si deve avviare lo script "installer.bat". Saranno effettuate le seguenti operazioni:
-1) creazione della rete "global-network" comune a tutti i container
-2) creazione del volume "VolumeT9" comune ai Task 1 e 9
-3) installazione di ogni singolo container
+More specifically, we have integrated the following tasks:
+- Task 1: https://github.com/Testing-Game-SAD-2023/T1-G11
+- Task 2-3: https://github.com/Testing-Game-SAD-2023/T23-G1
+- Task 4: https://github.com/Testing-Game-SAD-2023/T4-G18
+- Task 5: https://github.com/Testing-Game-SAD-2023/T5-G2
+- Task 6: https://github.com/Testing-Game-SAD-2023/T6-G12
+- Task 7: https://github.com/Testing-Game-SAD-2023/T7-G31
+- Task 9: https://github.com/Testing-Game-SAD-2023/T9-G19
 
-NOTA: il container relativo al Task 9 ("Progetto-SAD-G19-master") si sospenderà autonomamente dopo l'avvio. Esso viene utilizzato solo per "popolare" il volume "VolumeT9" condiviso con il Task 1.
+![FinalComponentDiagram](https://github.com/Pask00/TestingGame-IntegrationTask/assets/25242319/bd93d348-5ab2-434d-a8d9-db095d7e6a2b)
 
-## PASSO 2
-Si deve configurare il container "manvsclass-mongo_db-1" così come descritto anche nella documentazione del Task 1.
-Per fare ciò bisogna fare le seguenti operazioni:
-1) posizionarsi all'interno del terminale del container
-2) digitare il comando "mongosh"
-3) digitare i seguenti comandi:
+# Installation Guide
+
+## STEP 1
+The script "installer.bat" should be started. The following operations will be performed:
+1) creation of the "global-network" common to all containers
+2) creation of the volume "VolumeT9" common to Tasks 1 and 9
+3) installation of each individual container
+
+NOTE: The container related to Task 9 ("Project-SAD-G19-master") will suspend itself after startup. It is only used to "populate" the "VolumeT9" volume shared with Task 1.
+
+## STEP 2
+You must configure the container "manvsclass-mongo_db-1" as also described in the Task 1 documentation.
+To do this you must do the following:
+1) stand inside the container terminal.
+2) type the command "mongosh"
+3) type the following commands:
 
         use manvsclass
         db.createCollection("ClassUT");
@@ -30,11 +53,11 @@ Per fare ciò bisogna fare le seguenti operazioni:
         db.interaction.createIndex({ name: "text" })
         db.Admin.createIndex({username: 1})
 
-## PASSO 3
-L'intera applicazione è adesso pienamente configurata e raggiungibile sulla porta :80.
+## STEP 3
+The entire application is now fully configured and reachable on port :80.
 
-# VIDEO DIMOSTRAZIONE
-## Studente
+# Demonstration Video
+## Student
 
 
 https://github.com/Testing-Game-SAD-2023/T10-G40/assets/33938788/c6cd06c7-5d3a-4988-a651-7e1dc5896909
